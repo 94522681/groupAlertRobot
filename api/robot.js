@@ -1,6 +1,6 @@
 const superagent = require( "superagent" );
 
-const memberList = ['陈家乐','罗志刚','李智康','龙舟']
+const memberList = ['chenjiale','luozhigang','lizhikang','longzhou']
 
 
 let robotUrl = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d3210551-9a52-4768-95c3-0c599f178b04'
@@ -19,7 +19,7 @@ module.exports = async () => {
         let data ={
             "msgtype": "text",
             "text": {
-                "content": "今天记得录入错误日志哟！"，
+                "content": "今天记得录入错误日志哟！",
                 "mentioned_list": [todayMember],
             }
         }
