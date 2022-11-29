@@ -1,0 +1,19 @@
+{
+  "name": "vercel-koa2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.4",
+    "superagent": "^8.0.4"
+  },
+  "devDependencies": {
+    "@vercel/node": "^2.6.4"
+  }
+}
