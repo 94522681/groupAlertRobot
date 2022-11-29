@@ -22,18 +22,30 @@ app.use(async ctx => {
 //         console.log('----errrr------->',e)
 //     }
 // }
-
 // sendMsgRobot()
+
+let catchStatus = {
+    flag: false,
+    dateString: '',
+}
 
 setInterval(()=>{
     let dateTime  =  new Date()
     let hours = dateTime.getHours() 
     let mint = dateTime.getMinutes()
+    let date = dateTime.getDate()
+    if(date === catchStatus.dateString && catchStatus.flag) {
+        return
+    }
     if(dateTime.getDay() === 0) {
         return
     }
-    if((hours == '9' ||  hours == '09' )&& (mint == '0' || mint == '00')) {
+    if((hours == '9' ||  hours == '09' ) && (mint == '0' || mint == '00')) {
         sendMsgRobot()
+        catchStatus = {
+            flag: true,
+            dateString: date,
+        }
     }
 },1000*5)
 
