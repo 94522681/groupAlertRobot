@@ -1,14 +1,33 @@
 const superagent = require( "superagent" );
+
+const memberList = ['陈家乐','罗志刚','李智康','龙舟']
+
+
+let robotUrl = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d3210551-9a52-4768-95c3-0c599f178b04'
+
+let catchList = []
+
 module.exports = async () => {
     try {
+        let todayMember = ''
+        memberList.some(item => {
+            if(!catchList.includes(item)) {
+                todayMember = item
+                return true
+            }
+        });
         let data ={
             "msgtype": "text",
             "text": {
-                "content": "吃饭了吃饭！"
+                "content": "今天记得录入错误日志哟！"，
+                "mentioned_list": [todayMember],
             }
         }
-        const res = await superagent.post('https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=148d3c94-4ebc-4231-a804-170fc5bd33a6').send(data).set('Content-Type','application/json')
-        // console.log('---then--111111-->>>',res,res.text,res.errcode)
+        const res = await superagent.post(robotUrl).send(data).set('Content-Type','application/json')
+        catchList.push(todayMember)
+        if(catchList.length >= 4) {
+            catchList = []
+        }
     }catch (e) {
         console.log('----errrr------->',e)
     }

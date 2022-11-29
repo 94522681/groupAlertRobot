@@ -26,8 +26,17 @@ app.use(async ctx => {
 // sendMsgRobot()
 
 setInterval(()=>{
-    sendMsgRobot()
-},1000*60*10)
+    let dateTime  =  new Date()
+    let hours = dateTime.getHours() 
+    let mint = dateTime.getMinutes()
+    if(dateTime.getDay() === 0) {
+        return
+    }
+    if((hours == '9' ||  hours == '09' )&& (mint == '0' || mint == '00')) {
+        sendMsgRobot()
+    }
+},1000*5)
+
 sendMsgRobot()
 
 // app.listen(3023,()=> {
