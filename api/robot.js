@@ -15,7 +15,7 @@ let catchList = []
 
 module.exports = async () => {
     try {
-        console.log('-----1-1----');
+        console.log('-----1-1---1231231-');
         let todayMember = ''
         memberList.some(item => {
             if(!catchList.includes(item)) {
@@ -24,49 +24,19 @@ module.exports = async () => {
             }
         });
         let data ={
-            "msgtype": "template_card",
-            "template_card":{
-                "card_type":"text_notice",
-                "source":{
-                    "icon_url":"https://wework.qpic.cn/wwpic/252813_jOfDHtcISzuodLa_1629280209/0",
-                    "desc":"微信四组",
-                    "desc_color":0
-                },
-                "main_title":{
-                    "title": "今天录入错误日志人员",
-                },
-                "emphasis_content":{
-                    "title": catchName[todayMember],
-                },
-                "jump_list":[
-                    {
-                        "type":1,
-                        "url":"https://xsuxt.yuque.com/xsued/client/bn7knkn9gler313f#R1eg",
-                        "title":"错误日志值班表"
-                    },
-                    {
-                        "type":1,
-                        "url":"http://go.xsyxsc.cn/#/api-err-realtime?appId=wx11c47ad40ae04c48&type=customError&startTime=1669772348340&endTime=1669772374000",
-                        "title":"哨兵地址"
-                    },
-                    {
-                        "type":1,
-                        "url": "http://bigpan.xsyxsc.cn/#/myProject",
-                        "title":"bigPan地址"
-                    },
-                ],
-                "card_action":{
-                    "type":1,
-                    "url": "https://xsuxt.yuque.com/xsued/client/bn7knkn9gler313f#R1eg",
-                }        
+            "msgtype": "markdown",
+            "markdown":{
+                "content": `
+                # 微信四组
+                > ## <font color="info">今天录入错误日志人员</font> 
+                > # <@${todayMember}>
+                    
+                > #### [<font color="warning">错误日志值班表</font>](https://xsuxt.yuque.com/xsued/client/bn7knkn9gler313f#R1eg)
+                > #### [ <font color="warning">哨兵地址</font>](http://go.xsyxsc.cn/#/api-err-realtime?appId=wx11c47ad40ae04c48&type=customError&startTime=1669772348340&endTime=1669772374000)
+                > #### [<font color="warning">bigPan地址</font>](http://bigpan.xsyxsc.cn/#/myProject)
+                `
             }
         }
-    //     let secondData =  {
-    //         "msgtype": "text",
-    //         "text": {
-    //             "content": "hello world"
-    //         }
-    //    }
         const res = await superagent.post(robotUrl).send(data).set('Content-Type','application/json')
         console.log('-------->>>',res);
         catchList.push(todayMember)
@@ -74,6 +44,6 @@ module.exports = async () => {
             catchList = []
         }
     }catch (e) {
-        console.log('----errrr------->',e)
+        console.log('----errrr---31231---->',e)
     }
 }
