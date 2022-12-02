@@ -1,6 +1,6 @@
 const superagent = require( "superagent" );
 
-const memberList = ['chenjiale','luozhigang','lizhikang','longzhou']
+const memberList = ['longhou','luozhigang','chenjiale','lizhikang']
 
 let catchName = {
     'chenjiale': "陈家乐",
@@ -15,7 +15,6 @@ let catchList = []
 
 module.exports = async () => {
     try {
-        console.log('-----1-1---1231231-');
         let todayMember = ''
         memberList.some(item => {
             if(!catchList.includes(item)) {

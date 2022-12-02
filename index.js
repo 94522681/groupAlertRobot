@@ -37,6 +37,9 @@ setInterval(()=>{
     if(date === catchStatus.dateString && catchStatus.flag) {
         return
     }
+    if(dateTime.getDay() === 6 && date < 7) {
+        return
+    }
     if(dateTime.getDay() === 0) {
         return
     }
