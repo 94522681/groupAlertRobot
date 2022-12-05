@@ -1,6 +1,6 @@
 const superagent = require( "superagent" );
 
-const memberList = ['longhou','luozhigang','chenjiale','lizhikang']
+const memberList = ['longzhou','luozhigang','chenjiale','lizhikang']
 
 let catchName = {
     'chenjiale': "陈家乐",
