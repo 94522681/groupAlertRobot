@@ -31,7 +31,7 @@ module.exports = async () => {
                 > # <@${todayMember}>
                     
                 > #### [<font color="warning">错误日志值班表</font>](https://xsuxt.yuque.com/xsued/client/bn7knkn9gler313f#R1eg)
-                > #### [ <font color="warning">哨兵地址</font>](http://go.xsyxsc.cn/#/api-err-realtime?appId=wx11c47ad40ae04c48&type=customError&startTime=1669772348340&endTime=1669772374000)
+                > #### [ <font color="warning">哨兵地址</font>](http://go.xsyxsc.com/#/errorOverview/api)
                 > #### [<font color="warning">bigPan地址</font>](http://bigpan.xsyxsc.cn/#/myProject)
                 `
             }
