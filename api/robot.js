@@ -3,10 +3,11 @@ const superagent = require( "superagent" );
 const memberList = ['longzhou','luozhigang','chenjiale','lizhikang']
 
 let catchName = {
-    'chenjiale': "陈家乐",
-    'lizhikang': "李智康",
     'longzhou': "龙舟",
     'luozhigang': "罗志刚",
+    'luodanni': "罗丹妮",
+    'chenjiale': "陈家乐",
+    'lizhikang': "李智康",
 }
 
 let robotUrl = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d3210551-9a52-4768-95c3-0c599f178b04'
