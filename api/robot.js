@@ -1,6 +1,6 @@
 const superagent = require( "superagent" );
 
-const memberList = ['longzhou','luozhigang','chenjiale','lizhikang']
+const memberList = ['longzhou','luozhigang','luodanni','chenjiale','lizhikang']
 
 let catchName = {
     'longzhou': "龙舟",
@@ -40,7 +40,7 @@ module.exports = async () => {
         const res = await superagent.post(robotUrl).send(data).set('Content-Type','application/json')
         console.log('-------->>>',res);
         catchList.push(todayMember)
-        if(catchList.length >= 4) {
+        if(catchList.length >= 5) {
             catchList = []
         }
     }catch (e) {
