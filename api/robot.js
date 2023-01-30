@@ -1,7 +1,7 @@
 // node 发起请求的工具
 const superagent = require( "superagent" );
 
-const memberList = ['luodanni','chenjiale','lizhikang','longzhou','luozhigang']
+const memberList = ['longzhou','luozhigang','lizhikang','chenjiale','luodanni']
 
 let catchStatus =  {
     dateString: '',
@@ -10,9 +10,9 @@ let catchStatus =  {
 // 最多提醒次数
 const MAX_TIMES = 12
 // 间隔时间
-const DURATION_TIME = 30*1000 
+const DURATION_TIME = 10*60*1000 
 // 签到接口
-const signUrl = 'http://127.0.0.1:3011/click/robotAlert'
+const signUrl = 'http://101.43.30.21/click/robotAlert'
 // 微信机器人调用地址
 const  robotUrl = 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d3210551-9a52-4768-95c3-0c599f178b04'
 // mock测试机器人微信地址
@@ -51,7 +51,7 @@ async function sendMsgRobot() {
                 `
             }
         }
-        const res = await superagent.post(mockUrl || robotUrl).send(data).set('Content-Type','application/json')
+        const res = await superagent.post(robotUrl).send(data).set('Content-Type','application/json')
         nowTimes++
         if( nowTimes < MAX_TIMES) {
             setTimeout(()=>{
@@ -59,6 +59,7 @@ async function sendMsgRobot() {
             },DURATION_TIME)
         }else {
             signRobotAlert()
+            nowTimes = 1
         }
     }catch (e) {
         console.log('----errrr---31231---->',e)
@@ -93,7 +94,6 @@ function signRobotAlert() {
  * 倒计时逻辑初始化函数
  */
 function startAppSetTime() {
-    handleCacheListLogic()
     setInterval(()=>{
         let dateTime  =  new Date()
         let hours = dateTime.getHours() 
