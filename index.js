@@ -8,7 +8,13 @@ const { startAppSetTime } = require('./api/robot')
 // 开启倒计逻辑
 startAppSetTime()
 
+app.get('/', (req, res) => {
+    console.log('-----接收到了请求---空-->')
+    res.send('hello world')
+})
+
 app.get('/click/robotAlert', (req, res) => {
+    console.log('-----接收到了请求-----click/robotAler-->')
     // 1.判断今天的缓存是否完成点击完成签到
     if(checkIsDone()) {
         return
