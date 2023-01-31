@@ -1,7 +1,7 @@
 // node 发起请求的工具
 const superagent = require( "superagent" );
 
-const memberList = ['longzhou','luozhigang','lizhikang','chenjiale','luodanni']
+const memberList = ['lizhikang','chenjiale','luodanni','longzhou','luozhigang']
 
 let catchStatus =  {
     dateString: '',
