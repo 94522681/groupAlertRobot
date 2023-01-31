@@ -8,9 +8,9 @@ let catchStatus =  {
     flag: false
 }
 // 最多提醒次数
-const MAX_TIMES = 12
+const MAX_TIMES = 6
 // 间隔时间
-const DURATION_TIME = 10*60*1000 
+const DURATION_TIME = 30*60*1000 
 // 签到接口
 const signUrl = 'http://101.43.30.21/click/robotAlert'
 // 微信机器人调用地址
